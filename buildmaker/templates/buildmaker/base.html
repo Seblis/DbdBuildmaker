@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,12 +11,20 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-white" href="#">Test 1</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Test 2</a></li>
-            </ul>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-xl">
+            <a class="navbar-brand" href="#">DbD Buildmaker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems"
+                aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse"  id="navbarItems">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'buildmaker:kbuild_list' %}">Killer builds</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'buildmaker:sbuild_list' %}">Survivor builds</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">My builds</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     <div class="container">

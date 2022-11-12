@@ -5,3 +5,7 @@ from django.views import generic
 
 class HomeView(generic.TemplateView):
     template_name = "buildmaker/home.html"
+
+
+class TodoView(generic.TemplateView):
+    template_name: str = "buildmaker/todo.html"

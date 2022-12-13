@@ -19,8 +19,8 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('', RedirectView.as_view(pattern_name='buildmaker:home'), name='index'),
-    path("buildmaker/", include("buildmaker.urls")),
-    path("accounts/", include("django.contrib.auth.urls")),
-    path('admin/', admin.site.urls)
-
+    path('buildmaker/', include("buildmaker.urls")),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path('accounts/', include('accounts.urls')),
+    path('admin/', admin.site.urls),
 ]

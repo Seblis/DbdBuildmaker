@@ -15,17 +15,29 @@
         <div class="container-xl">
             <a class="navbar-brand" href="#">DbD Buildmaker</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems"
-                aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse"  id="navbarItems">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="{% url 'buildmaker:kbuild_list' %}">Killer builds</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'buildmaker:sbuild_list' %}">Survivor builds</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">My builds</a></li>
                 </ul>
+                <ul class="navbar-nav">
+                    {% comment %} logging buttons {% endcomment %}
+                    {% if user.is_authenticated %}
+                        <li class="nav-item h-100 text-light align-self-center fw-bold">Hi, {{ user.username }}</div>
+                        <li class="nav-item"><a class="btn btn-outline-danger" href="{% url 'logout' %}">Log Out</a></div>
+                    {% else %}
+                        <li class="nav-item"><a class="btn btn-outline-secondary" href="{% url 'login' %}">Log In</a></div>
+                        <li class="nav-item"><a class="btn btn-outline-success" href="{% url 'accounts:signup' %}">Sign up</a></div>
+                    {% endif %}
+                </ul>
             </div>
+            
         </div>
+
     </nav>
     <div class="container">
         {% block content %} {% endblock content %}

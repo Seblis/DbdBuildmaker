@@ -102,6 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LOGIN_REDIRECT_URL = 'buildmaker:home'
+LOGOUT_REDIRECT_URL = 'buildmaker:home'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

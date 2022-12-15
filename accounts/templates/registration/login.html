@@ -1,11 +1,31 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block head_extra %} 
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% endblock head_extra %}
 
 {% block title %}Login{% endblock title %}
 
 {% block content %}
-<h2>Log In</h2>
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-success ml-2" type="submit">Log In</button>
-</form>
+<div class="form-signin text-center my-5">
+    <form method="post">{% csrf_token %}
+
+        <img class="mb-4" src="{% static 'img/dbd_icon.png' %}" alt="Dbd icon" width="72" height="72">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+            <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">© Seblis 2022</p>
+    </form>
+
+</div>
 {% endblock content %}

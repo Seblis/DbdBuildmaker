@@ -19,7 +19,6 @@ class BuildmakerUserChangeForm(UserChangeForm):
             'email',
         )
 
-# TODO in the future move User Login Form here
 class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)

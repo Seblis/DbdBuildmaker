@@ -14,17 +14,22 @@
         <img class="mb-4" src="{% static 'img/dbd_icon.png' %}" alt="Dbd icon" width="72" height="72">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-        <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
-            <label for="floatingInput">Username</label>
-        </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-            <label for="floatingPassword">Password</label>
-        </div>
+        {% for field in form  %}
+            <div class="form-floating">
+                {{ field }}
+                <label for="{{ field.id_for_label }}">{{ field.label }}</lable>
+            </div>
+        {% endfor %}
 
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         <p class="mt-5 mb-3 text-muted">© Seblis 2022</p>
+        {% if form.non_field_errors %}
+            <ul class='form-errors'>
+                {% for error in form.non_field_errors %}
+                    <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </form>
 
 </div>

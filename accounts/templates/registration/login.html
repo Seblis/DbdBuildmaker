@@ -17,13 +17,14 @@
         {% for field in form  %}
             <div class="form-floating">
                 {{ field }}
-                <label for="{{ field.id_for_label }}">{{ field.label }}</lable>
+                {{ field.label_tag }}
             </div>
         {% endfor %}
 
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         <p class="mt-5 mb-3 text-muted">© Seblis 2022</p>
         {% if form.non_field_errors %}
+            <h4>Whoops, something went wrong</h4>
             <ul class='form-errors'>
                 {% for error in form.non_field_errors %}
                     <li class="text-danger">{{ error }}</li>

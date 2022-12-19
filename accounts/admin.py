@@ -6,6 +6,7 @@ from .forms import BuildmakerUserCreationForm, BuildmakerUserChangeForm
 
 BuildmakerUser = get_user_model()
 
+
 class BuildmakerUserAdmin(UserAdmin):
     add_form = BuildmakerUserCreationForm
     form = BuildmakerUserChangeForm
